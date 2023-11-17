@@ -1,4 +1,4 @@
-package br.com.guifroes1984.ecom.services.jwt;
+package br.com.guifroes1984.ecom.services;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import br.com.guifroes1984.ecom.entity.Usuario;
+import br.com.guifroes1984.ecom.entity.User;
 import br.com.guifroes1984.ecom.repository.UserRepository;
 
 @Service
@@ -20,7 +20,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Optional<Usuario> optionalUsuario = userRepository.findFirstByEmail(username);
+		Optional<User> optionalUsuario = userRepository.findFirstByEmail(username);
 		if (optionalUsuario.isEmpty()) throw new UsernameNotFoundException("Nome de usuário não encontrado", null);
 		return new org.springframework.security.core.userdetails.User(optionalUsuario.get().getEmail(), optionalUsuario.get().getPassword()
 		, new ArrayList<>());

@@ -1,13 +1,13 @@
 package br.com.guifroes1984.ecom.entity;
 
-import br.com.guifroes1984.ecom.enums.UsuarioRole;
+import br.com.guifroes1984.ecom.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "usuarios")
-public class Usuario {
+@Table(name = "users")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,9 +17,9 @@ public class Usuario {
     
     private String password;
 
-    private String nome;
+    private String name;
 
-    private UsuarioRole role;
+    private UserRole role;
 
     @Lob
     @Column(columnDefinition = "longblob")

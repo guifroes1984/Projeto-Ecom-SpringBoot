@@ -5,11 +5,14 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.guifroes1984.ecom.entity.Usuario;
+import br.com.guifroes1984.ecom.entity.User;
+import br.com.guifroes1984.ecom.enums.UserRole;
 
 @Repository
-public interface UserRepository extends JpaRepository<Usuario, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
-	Optional<Usuario> findFirstByEmail(String email);
+	Optional<User> findFirstByEmail(String email);
+	
+	User findByRole(UserRole userRole);
 	
 }

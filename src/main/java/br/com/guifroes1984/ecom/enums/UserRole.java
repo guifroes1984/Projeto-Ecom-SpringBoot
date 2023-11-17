@@ -1,6 +1,6 @@
 package br.com.guifroes1984.ecom.enums;
 
-public enum UsuarioRole {
+public enum UserRole {
 
     ADMIN,
     CUSTOMER
