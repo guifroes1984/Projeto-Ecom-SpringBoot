@@ -18,7 +18,7 @@ import io.jsonwebtoken.security.Keys;
 @Component
 public class JwtUtils {
 
-	public static final String SECRET = "24098410048712122023";
+	public static final String SECRET_KEY = "S8YXDKNI2PE2V13RQHWZHXAYL0GWFGGDWNSMPGKDC2U8CBGFNAQKKLSEWUZZI7W08DB4VMQQLZNT96ZNYJA5J8CFA7YN1SEL5LO2WODEVSA5FJS1F3WG75PS28FY6CAMXT4YPIFTQTH6ATPHSMJYMHRDPCBS8JVIJXB18IIN85IZBXZX990GKQQ6EDZ6SFHRTAJNCHRH5PBH125MDTMZT5VUJ8SWRWIJYOUMCZ1Y4X6A4C6WIB0NA6A43D3KNC12";
 	
 	public String generateToken(String userName) {
 		Map<String, Object> claims = new HashMap<>();
@@ -35,7 +35,7 @@ public class JwtUtils {
 	}
 
 	private Key getSignKey() {
-		byte[] keybytes = Decoders.BASE64.decode(SECRET);
+		byte[] keybytes = Decoders.BASE64.decode(SECRET_KEY);
 		return Keys.hmacShaKeyFor(keybytes);
 	}
 	
